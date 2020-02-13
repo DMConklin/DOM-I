@@ -80,9 +80,20 @@ document.querySelectorAll('.contact h4')[0].appendChild(document.createTextNode(
 // Inserted p text for contact info
 contactKeys = Object.keys(siteContent['contact']);
 Array.from(document.querySelectorAll('.contact p')).map((paragraph, index) => {
-  paragraph.appendChild(
-    document.createTextNode(siteContent['contact'][contactKeys[index+1]]));
+  paragraph.appendChild(document.createTextNode(siteContent['contact'][contactKeys[index+1]]));
 })
 
 // Inserted p text for footer
 document.querySelectorAll('footer p')[0].appendChild(document.createTextNode(siteContent['footer']['copyright']));
+
+// Added new nav links
+linkThis = document.createElement('a');
+linkThis.appendChild(document.createTextNode('This'));
+document.getElementsByTagName('nav')[0].prepend(linkThis);
+
+linkThat = document.createElement('a');
+linkThat.appendChild(document.createTextNode('That'));
+document.getElementsByTagName('nav')[0].appendChild(linkThat);
+
+// Changed navigation text to green
+document.querySelectorAll('nav a').forEach(link => link.style.color = 'green');
