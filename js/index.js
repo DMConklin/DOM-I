@@ -62,17 +62,13 @@ document.getElementsByTagName('button')[0].appendChild(document.createTextNode(s
 document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
 
 // Inserted h4 text for all h4 content headers
-let h4Headers = Object.keys(siteContent['main-content']).filter((key) => {
-  return key.includes('h4');
-});
+let h4Headers = Object.keys(siteContent['main-content']).filter(key => key.includes('h4'));
 Array.from(document.querySelectorAll('.main-content h4')).map((header, index) => {
   header.appendChild(document.createTextNode(siteContent['main-content'][h4Headers[index]]));
 });
 
 // Inserted p text for all content p
-let content = Object.keys(siteContent['main-content']).filter((key) => {
-  return key.includes('content');
-});
+let content = Object.keys(siteContent['main-content']).filter(key => key.includes('content'));
 Array.from(document.querySelectorAll('.main-content p')).map((paragraph, index) => {
   paragraph.appendChild(document.createTextNode(siteContent['main-content'][content[index]]));
 });
