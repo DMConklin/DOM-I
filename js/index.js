@@ -38,5 +38,42 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
+
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+Array.from(document.querySelectorAll('nav a')).map((link, index) => {
+  link.appendChild(document.createTextNode(siteContent['nav'][`nav-item-${index+1}`]));
+});
+
+document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(siteContent['cta']['h1']));
+
+document.getElementsByTagName('button')[0].appendChild(document.createTextNode(siteContent['cta']['button']));
+
+document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
+
+h4Headers = Object.keys(siteContent['main-content']).filter((key) => {
+  return key.includes('h4');
+});
+Array.from(document.querySelectorAll('.main-content h4')).map((header, index) => {
+  header.appendChild(document.createTextNode(siteContent['main-content'][h4Headers[index]]));
+});
+
+content = Object.keys(siteContent['main-content']).filter((key) => {
+  return key.includes('content');
+});
+Array.from(document.querySelectorAll('.main-content p')).map((paragraph, index) => {
+  paragraph.appendChild(document.createTextNode(siteContent['main-content'][content[index]]));
+});
+
+document.getElementById('middle-img').setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+document.querySelectorAll('.contact h4')[0].appendChild(document.createTextNode(siteContent['contact']['contact-h4']));
+
+contactKeys = Object.keys(siteContent['contact']);
+Array.from(document.querySelectorAll('.contact p')).map((paragraph, index) => {
+  paragraph.appendChild(
+    document.createTextNode(siteContent['contact'][contactKeys[index+1]]));
+})
+
+document.querySelectorAll('footer p')[0].appendChild(document.createTextNode(siteContent['footer']['copyright']));
