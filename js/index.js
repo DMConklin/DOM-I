@@ -84,9 +84,9 @@ document.getElementById('middle-img').setAttribute('src', siteContent['main-cont
 document.querySelectorAll('.contact h4')[0].appendChild(document.createTextNode(siteContent['contact']['contact-h4']));
 
 // Inserted p text for contact info
-let contactKeys = Object.keys(siteContent['contact']);
+let contactKeys = Object.keys(siteContent['contact']).filter(key => !key.includes('h4'));
 Array.from(document.querySelectorAll('.contact p')).map((paragraph, index) => {
-  paragraph.appendChild(document.createTextNode(siteContent['contact'][contactKeys[index+1]]));
+  paragraph.appendChild(document.createTextNode(siteContent['contact'][contactKeys[index]]));
 })
 
 // Inserted p text for footer
