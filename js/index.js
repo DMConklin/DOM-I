@@ -38,20 +38,24 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
+// Inserted link names
 Array.from(document.querySelectorAll('nav a')).map((link, index) => {
   link.appendChild(document.createTextNode(siteContent['nav'][`nav-item-${index+1}`]));
 });
 
+// Inserted h1 text
 document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(siteContent['cta']['h1']));
 
+// Inserted button text
 document.getElementsByTagName('button')[0].appendChild(document.createTextNode(siteContent['cta']['button']));
 
+// Added img src for cta image
 document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
 
+// Inserted h4 text for all h4 content headers
 h4Headers = Object.keys(siteContent['main-content']).filter((key) => {
   return key.includes('h4');
 });
@@ -59,6 +63,7 @@ Array.from(document.querySelectorAll('.main-content h4')).map((header, index) =>
   header.appendChild(document.createTextNode(siteContent['main-content'][h4Headers[index]]));
 });
 
+// Inserted p text for all content p
 content = Object.keys(siteContent['main-content']).filter((key) => {
   return key.includes('content');
 });
@@ -66,14 +71,18 @@ Array.from(document.querySelectorAll('.main-content p')).map((paragraph, index) 
   paragraph.appendChild(document.createTextNode(siteContent['main-content'][content[index]]));
 });
 
+// Added img src for middle image
 document.getElementById('middle-img').setAttribute('src', siteContent['main-content']['middle-img-src']);
 
+// Inserted h4 text for contact header
 document.querySelectorAll('.contact h4')[0].appendChild(document.createTextNode(siteContent['contact']['contact-h4']));
 
+// Inserted p text for contact info
 contactKeys = Object.keys(siteContent['contact']);
 Array.from(document.querySelectorAll('.contact p')).map((paragraph, index) => {
   paragraph.appendChild(
     document.createTextNode(siteContent['contact'][contactKeys[index+1]]));
 })
 
+// Inserted p text for footer
 document.querySelectorAll('footer p')[0].appendChild(document.createTextNode(siteContent['footer']['copyright']));
