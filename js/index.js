@@ -47,7 +47,12 @@ Array.from(document.querySelectorAll('nav a')).map((link, index) => {
 });
 
 // Inserted h1 text
-document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(siteContent['cta']['h1']));
+headerArr = siteContent['cta']['h1'].split(' ');
+document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(headerArr[0]));
+document.getElementsByTagName('h1')[0].appendChild(document.createElement('br'));
+document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(headerArr[1]));
+document.getElementsByTagName('h1')[0].appendChild(document.createElement('br'));
+document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(headerArr[2]));
 
 // Inserted button text
 document.getElementsByTagName('button')[0].appendChild(document.createTextNode(siteContent['cta']['button']));
