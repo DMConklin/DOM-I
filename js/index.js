@@ -47,12 +47,13 @@ Array.from(document.querySelectorAll('nav a')).map((link, index) => {
 });
 
 // Inserted h1 text
-headerArr = siteContent['cta']['h1'].split(' ');
-document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(headerArr[0]));
-document.getElementsByTagName('h1')[0].appendChild(document.createElement('br'));
-document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(headerArr[1]));
-document.getElementsByTagName('h1')[0].appendChild(document.createElement('br'));
-document.getElementsByTagName('h1')[0].appendChild(document.createTextNode(headerArr[2]));
+let header1 = document.getElementsByTagName('h1')[0];
+let headerArr = siteContent['cta']['h1'].split(' ');
+header1.appendChild(document.createTextNode(headerArr[0]));
+header1.appendChild(document.createElement('br'));
+header1.appendChild(document.createTextNode(headerArr[1]));
+header1.appendChild(document.createElement('br'));
+header1.appendChild(document.createTextNode(headerArr[2]));
 
 // Inserted button text
 document.getElementsByTagName('button')[0].appendChild(document.createTextNode(siteContent['cta']['button']));
@@ -61,7 +62,7 @@ document.getElementsByTagName('button')[0].appendChild(document.createTextNode(s
 document.getElementById("cta-img").setAttribute('src', siteContent["cta"]["img-src"]);
 
 // Inserted h4 text for all h4 content headers
-h4Headers = Object.keys(siteContent['main-content']).filter((key) => {
+let h4Headers = Object.keys(siteContent['main-content']).filter((key) => {
   return key.includes('h4');
 });
 Array.from(document.querySelectorAll('.main-content h4')).map((header, index) => {
@@ -69,7 +70,7 @@ Array.from(document.querySelectorAll('.main-content h4')).map((header, index) =>
 });
 
 // Inserted p text for all content p
-content = Object.keys(siteContent['main-content']).filter((key) => {
+let content = Object.keys(siteContent['main-content']).filter((key) => {
   return key.includes('content');
 });
 Array.from(document.querySelectorAll('.main-content p')).map((paragraph, index) => {
@@ -83,7 +84,7 @@ document.getElementById('middle-img').setAttribute('src', siteContent['main-cont
 document.querySelectorAll('.contact h4')[0].appendChild(document.createTextNode(siteContent['contact']['contact-h4']));
 
 // Inserted p text for contact info
-contactKeys = Object.keys(siteContent['contact']);
+let contactKeys = Object.keys(siteContent['contact']);
 Array.from(document.querySelectorAll('.contact p')).map((paragraph, index) => {
   paragraph.appendChild(document.createTextNode(siteContent['contact'][contactKeys[index+1]]));
 })
@@ -92,11 +93,11 @@ Array.from(document.querySelectorAll('.contact p')).map((paragraph, index) => {
 document.querySelectorAll('footer p')[0].appendChild(document.createTextNode(siteContent['footer']['copyright']));
 
 // Added new nav links
-linkThis = document.createElement('a');
+let linkThis = document.createElement('a');
 linkThis.appendChild(document.createTextNode('This'));
 document.getElementsByTagName('nav')[0].prepend(linkThis);
 
-linkThat = document.createElement('a');
+let linkThat = document.createElement('a');
 linkThat.appendChild(document.createTextNode('That'));
 document.getElementsByTagName('nav')[0].appendChild(linkThat);
 
